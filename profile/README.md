@@ -50,6 +50,16 @@ Set up the AgentLTL plugin for me by following https://raw.githubusercontent.com
 Set up the AgentLTL plugin for me by following https://raw.githubusercontent.com/AgentLTL/agentltl-mistral-vibe/main/SETUP.md
 ```
 
+## Python packages
+
+All three are on PyPI:
+
+```bash
+pip install agentltl          # the FOLTL engine
+pip install cli-to-tools      # shell command lines to structured tool calls
+pip install agentltl-coding   # the AGENTLTL.yaml rules and guard (pulls in the other two)
+```
+
 ## A rule in a few lines
 
 ```yaml
