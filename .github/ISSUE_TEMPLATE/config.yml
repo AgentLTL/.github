@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Documentation
+    url: https://agentltl.github.io
+    about: Setup, the rule language, the rule library, and how each plugin works.
