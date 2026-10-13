@@ -1,0 +1,79 @@
+name: Bug report
+description: "Something does not work as documented: a wrong verdict, a command translated wrongly, a crash, a plugin that does not load."
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting. A few minutes here saves days of back and forth.
+
+        **Security problems:** do not file them here. Use this repository's **Security** tab →
+        **Report a vulnerability** instead.
+
+        **Secrets:** your rules, traces and logs may contain tokens, paths or hostnames. Redact them
+        before pasting.
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Before filing
+      options:
+        - label: I searched the open and closed issues, and this is not a duplicate.
+          required: true
+        - label: I updated to the latest release of the package or plugin, and it still happens.
+          required: true
+        - label: I removed secrets and private data from everything I pasted below.
+          required: true
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened
+      description: What you did, and what you saw instead of what you expected. One problem per issue.
+      placeholder: "I ran `git push -f` with the rule `no-force-push` on and it was allowed."
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: What you expected
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: How to reproduce
+      description: |
+        The smallest steps that show it: the `AGENTLTL.yaml` (or just the rule), and the command or
+        tool call. For a command that translates wrongly, the output of
+        `agentltl translate "<the command>"`. For a rule that decides wrongly,
+        `agentltl check "deny: <call>"`.
+      render: shell
+    validations:
+      required: true
+  - type: textarea
+    id: versions
+    attributes:
+      label: Versions
+      description: |
+        Output of `pip list 2>/dev/null | grep -i -E 'agentltl|cli-to-tools'`, plus your agent and
+        its version (for example Claude Code 2.x, Codex 0.162, Copilot CLI, Mistral Vibe 2.26) and your
+        OS and Python version.
+      render: shell
+    validations:
+      required: true
+  - type: textarea
+    id: diagnostics
+    attributes:
+      label: Diagnostics (plugin problems)
+      description: |
+        If a harness plugin is involved: the output of `agentltl validate` and the end of
+        `agentltl trace`, and whatever the agent printed when the guard refused or failed.
+      render: shell
+    validations:
+      required: false
+  - type: textarea
+    id: more
+    attributes:
+      label: Anything else
+      description: Logs, screenshots, what you already tried.
+    validations:
+      required: false

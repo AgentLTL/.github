@@ -1,0 +1,49 @@
+name: Feature request
+description: "A rule you cannot express, a command that is not supported, a harness for another agent, an improvement."
+labels: [enhancement]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Describe the problem first. Ideas for the solution are welcome, but the problem is what
+        lets us judge the idea.
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Before filing
+      options:
+        - label: I searched the open and closed issues, and the documentation at https://agentltl.github.io, and this is not already possible or requested.
+          required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: The problem
+      description: What are you trying to do, and what stops you? A concrete situation beats a general wish.
+      placeholder: "I want to require a staging deploy before a prod deploy of the same version, but ..."
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: What you would like
+      description: How it could work. For a rule, an example `AGENTLTL.yaml`. For a command, the command lines it should understand.
+      render: yaml
+    validations:
+      required: false
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives you tried
+      description: Workarounds, other rules or tools, and why they fall short.
+    validations:
+      required: false
+  - type: dropdown
+    id: help
+    attributes:
+      label: Would you like to work on it?
+      options:
+        - "No"
+        - "Yes, I can send a pull request"
+        - "Yes, with guidance"
+    validations:
+      required: false

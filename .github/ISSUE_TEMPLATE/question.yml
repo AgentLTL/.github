@@ -1,0 +1,26 @@
+name: Question
+description: You are not sure how to do something, or whether something is a bug.
+labels: [question]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Please check the documentation at https://agentltl.github.io first. If something there is
+        wrong or missing, say so below: that is useful to know.
+
+        Redact secrets and private data from anything you paste.
+  - type: textarea
+    id: question
+    attributes:
+      label: Your question
+      description: What you want to do, what you tried, and where you got stuck.
+    validations:
+      required: true
+  - type: textarea
+    id: context
+    attributes:
+      label: Context
+      description: Your agent and its version, how you installed AgentLTL, and the rule or command involved.
+      render: shell
+    validations:
+      required: false
